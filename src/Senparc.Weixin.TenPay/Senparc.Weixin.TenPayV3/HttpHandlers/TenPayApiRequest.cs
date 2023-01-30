@@ -202,6 +202,7 @@ namespace Senparc.Weixin.TenPayV3
                 {
                     if (resultCode.StateCode == ((int)HttpStatusCode.NoContent).ToString())
                     {
+                        result = createDefaultInstance?.Invoke() ?? GetInstance<T>(true);
                         result.VerifySignSuccess = true;
                     }
                     else
